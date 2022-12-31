@@ -1,0 +1,190 @@
+:root {
+  /* COLORS */
+  --clr-primary-100: hsl(0, 0%, 100%);
+  --clr-primary-900: hsl(219, 29%, 14%);
+  --clr-primary-500: hsl(263, 55%, 52%);
+  --clr-primary-400: hsl(217, 19%, 35%);
+  --clr-neutral-100: hsl(210, 46%, 95%);
+  --clr-neutral-200: hsl(0, 0%, 81%);
+  /* Font Weight */
+  --fw-bold: 600;
+  --fw-semibold: 500;
+  --ff: 'Barlow Semi Condensed', sans-serif;
+}
+/* GLOBAL RESETS */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* general styling */
+body {
+  font-family: var(--ff);
+  font-weight: var(--fw-semibold);
+  background-color: var(--clr-neutral-100);
+  font-size: 13px;
+  width: 80vw;
+  margin: 4rem auto;
+}
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  color: var(--clr-neutral-100);
+}
+.testimonial {
+  display: grid;
+  gap: 1rem;
+  padding: 1.2rem;
+  border-radius: 8px;
+  background-color: var(--clr-primary-500);
+}
+
+.testimonial:nth-child(1) {
+  position: relative;
+  z-index: 99;
+}
+.testimonial:nth-child(1)::before {
+  content: url(./images/bg-pattern-quotation.svg);
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  color: white;
+  top: 0;
+  right: 80px;
+  z-index: -99;
+}
+
+.testimonial:nth-child(2) {
+  background-color: var(--clr-primary-400) !important;
+}
+
+.testimonial:nth-child(3) {
+  background-color: var(--clr-primary-100) !important;
+  color: var(--clr-primary-400);
+}
+.testimonial:nth-child(4) {
+  background-color: var(--clr-primary-900) !important;
+}
+.testimonial:nth-child(5) {
+  background-color: var(--clr-primary-100) !important;
+  color: var(--clr-primary-400);
+}
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-weight: var(--fw-bold);
+}
+
+.user {
+  display: flex;
+  gap: 1rem;
+}
+.name {
+  font-size: 1rem;
+}
+.subtitle {
+  opacity: 0.5;
+}
+.quote {
+  opacity: 0.7;
+}
+img {
+  border-radius: 50px;
+  border: 1px solid var(--clr-neutral-100);
+  width: 35px;
+  height: 35px;
+}
+
+@media (width > 1080px) {
+  .testimonials {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .testimonial:nth-child(5) {
+    grid-column: 4/5;
+    grid-row: 1 / span 2;
+  }
+  .testimonial:nth-child(1)::before {
+    content: url(./images/bg-pattern-quotation.svg);
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    color: white;
+    top: 0;
+    right: 135px;
+    z-index: -99;
+  }
+  .testimonial {
+    padding: 2rem;
+  }
+  .span-2 {
+    grid-column: span 2;
+  }
+}
